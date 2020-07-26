@@ -16,6 +16,34 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
+-- Table structure for table `new_posts`
+--
+
+DROP TABLE IF EXISTS `new_posts`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `new_posts` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(50) NOT NULL,
+  `description` varchar(50) NOT NULL,
+  `author_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `author_id` (`author_id`),
+  CONSTRAINT `new_posts_ibfk_1` FOREIGN KEY (`author_id`) REFERENCES `users` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `new_posts`
+--
+
+LOCK TABLES `new_posts` WRITE;
+/*!40000 ALTER TABLE `new_posts` DISABLE KEYS */;
+INSERT INTO `new_posts` VALUES (1,'SQlAlchemy','is good',4),(2,'SQlAlchemy','is great',3),(3,'SQlAlchemy','is awesome',2),(4,'SQlAlchemy','is cool',1);
+/*!40000 ALTER TABLE `new_posts` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `users`
 --
 
@@ -50,4 +78,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-07-26 21:12:47
+-- Dump completed on 2020-07-26 22:15:34
