@@ -7,7 +7,9 @@ the path parameter takes an integer user id and returns the string "FOUND " if t
 The above endpoint is vulnerable to SQL injection.
 
 ## Instrcutions to run the app
-1. Restore the table so that the application can use it. This can be done as `mysql -u [user] -p [database_name] < baba_users.sql`
+1. Restore the table so that the application can use it. This can be done by running the below 2 commands consecutively one after the other
+`mysql -u root -p -e "create database baba";` => creates a database by the name baba
+`mysql -u [user] -p baba < baba_users.sql` => restores the sql file into the baba database created above
 2. Run the app as `python vulnerable.py` (the app runs on default flask port. You may need to tweak that in case you have some other app running on that port already)
 3. Check/verify if the API is vulenrable to SQLinjection already
 4. To exploit the vulnerability run the exploit as `python exploit.py`. The exploit is just a sample that tries to enumerate the DB username that the application uses
